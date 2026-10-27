@@ -1,0 +1,373 @@
+[
+  {
+    "group": "demo",
+    "patient_id": "p-james-walker",
+    "patient_name": "James Walker",
+    "ordering_provider": "Dr. Emily Chen",
+    "requested_on": "2026-10-20",
+    "service_code": "SVC-MRI-LSPINE",
+    "label": "ready",
+    "scenario": "Showcase 1 - all criteria documented"
+  },
+  {
+    "group": "demo",
+    "patient_id": "p-linda-park",
+    "patient_name": "Linda Park",
+    "ordering_provider": "Dr. Emily Chen",
+    "requested_on": "2026-10-20",
+    "service_code": "SVC-GLP1-SEMAGLUTIDE",
+    "label": "needs_info",
+    "scenario": "Showcase 2 - metformin trial not documented"
+  },
+  {
+    "group": "demo",
+    "patient_id": "p-robert-diaz",
+    "patient_name": "Robert Diaz",
+    "ordering_provider": "Dr. Emily Chen",
+    "requested_on": "2026-10-20",
+    "service_code": "SVC-MRI-KNEE",
+    "label": "ready",
+    "scenario": "Showcase 3 - denied; PT only in scanned outside records",
+    "prior_denial": {
+      "reason": "K2 not met: conservative therapy (physical therapy or NSAIDs) is not documented in the submitted records.",
+      "cited": {
+        "K1": [
+          "p-robert-diaz-cond-6"
+        ],
+        "K3": [
+          "p-robert-diaz-proc-7"
+        ]
+      }
+    }
+  },
+  {
+    "group": "eval",
+    "patient_id": "p-eval-01",
+    "patient_name": "Miles Hughes",
+    "ordering_provider": "Dr. Emily Chen",
+    "requested_on": "2026-10-20",
+    "service_code": "SVC-MRI-LSPINE",
+    "label": "ready",
+    "scenario": "PT x5, 8+ weeks",
+    "trap": false
+  },
+  {
+    "group": "eval",
+    "patient_id": "p-eval-02",
+    "patient_name": "Miles Kowalski",
+    "ordering_provider": "Dr. Emily Chen",
+    "requested_on": "2026-10-20",
+    "service_code": "SVC-MRI-LSPINE",
+    "label": "ready",
+    "scenario": "NSAID 7 weeks",
+    "trap": false
+  },
+  {
+    "group": "eval",
+    "patient_id": "p-eval-03",
+    "patient_name": "Liam Okafor",
+    "ordering_provider": "Dr. Emily Chen",
+    "requested_on": "2026-10-20",
+    "service_code": "SVC-MRI-LSPINE",
+    "label": "ready",
+    "scenario": "red flag: progressive foot drop",
+    "trap": false
+  },
+  {
+    "group": "eval",
+    "patient_id": "p-eval-04",
+    "patient_name": "Leo Patel",
+    "ordering_provider": "Dr. Emily Chen",
+    "requested_on": "2026-10-20",
+    "service_code": "SVC-MRI-LSPINE",
+    "label": "ready",
+    "scenario": "red flag: cancer history",
+    "trap": false
+  },
+  {
+    "group": "eval",
+    "patient_id": "p-eval-05",
+    "patient_name": "Felix Okafor",
+    "ordering_provider": "Dr. Emily Chen",
+    "requested_on": "2026-10-20",
+    "service_code": "SVC-MRI-LSPINE",
+    "label": "not_supported",
+    "scenario": "only ~3 weeks of symptoms, no red flags",
+    "trap": false
+  },
+  {
+    "group": "eval",
+    "patient_id": "p-eval-06",
+    "patient_name": "Theo Tanaka",
+    "ordering_provider": "Dr. Emily Chen",
+    "requested_on": "2026-10-20",
+    "service_code": "SVC-MRI-LSPINE",
+    "label": "needs_info",
+    "scenario": "8 weeks of pain, no conservative therapy documented",
+    "trap": false
+  },
+  {
+    "group": "eval",
+    "patient_id": "p-eval-07",
+    "patient_name": "Mia Hughes",
+    "ordering_provider": "Dr. Emily Chen",
+    "requested_on": "2026-10-20",
+    "service_code": "SVC-MRI-LSPINE",
+    "label": "ready",
+    "scenario": "PT documented only in a note",
+    "trap": false
+  },
+  {
+    "group": "eval",
+    "patient_id": "p-eval-08",
+    "patient_name": "Felix Nguyen",
+    "ordering_provider": "Dr. Emily Chen",
+    "requested_on": "2026-10-20",
+    "service_code": "SVC-MRI-LSPINE",
+    "label": "needs_info",
+    "scenario": "PT recommended but never started",
+    "trap": true
+  },
+  {
+    "group": "eval",
+    "patient_id": "p-eval-09",
+    "patient_name": "Ethan Novak",
+    "ordering_provider": "Dr. Emily Chen",
+    "requested_on": "2026-10-20",
+    "service_code": "SVC-MRI-LSPINE",
+    "label": "needs_info",
+    "scenario": "only NSAID order was cancelled",
+    "trap": true
+  },
+  {
+    "group": "eval",
+    "patient_id": "p-eval-10",
+    "patient_name": "Hazel Patel",
+    "ordering_provider": "Dr. Emily Chen",
+    "requested_on": "2026-10-20",
+    "service_code": "SVC-MRI-LSPINE",
+    "label": "not_supported",
+    "scenario": "~4 weeks of symptoms, no red flags",
+    "trap": false
+  },
+  {
+    "group": "eval",
+    "patient_id": "p-eval-11",
+    "patient_name": "Nora Moreau",
+    "ordering_provider": "Dr. Emily Chen",
+    "requested_on": "2026-10-20",
+    "service_code": "SVC-GLP1-SEMAGLUTIDE",
+    "label": "ready",
+    "scenario": "metformin + A1c 8.4",
+    "trap": false
+  },
+  {
+    "group": "eval",
+    "patient_id": "p-eval-12",
+    "patient_name": "Felix Hughes",
+    "ordering_provider": "Dr. Emily Chen",
+    "requested_on": "2026-10-20",
+    "service_code": "SVC-GLP1-SEMAGLUTIDE",
+    "label": "ready",
+    "scenario": "metformin intolerance recorded",
+    "trap": false
+  },
+  {
+    "group": "eval",
+    "patient_id": "p-eval-13",
+    "patient_name": "Noah Schmidt",
+    "ordering_provider": "Dr. Emily Chen",
+    "requested_on": "2026-10-20",
+    "service_code": "SVC-GLP1-SEMAGLUTIDE",
+    "label": "ready",
+    "scenario": "metformin intolerance in a note",
+    "trap": false
+  },
+  {
+    "group": "eval",
+    "patient_id": "p-eval-14",
+    "patient_name": "Zoe Nguyen",
+    "ordering_provider": "Dr. Emily Chen",
+    "requested_on": "2026-10-20",
+    "service_code": "SVC-GLP1-SEMAGLUTIDE",
+    "label": "needs_info",
+    "scenario": "no metformin history",
+    "trap": false
+  },
+  {
+    "group": "eval",
+    "patient_id": "p-eval-15",
+    "patient_name": "Felix Silva",
+    "ordering_provider": "Dr. Emily Chen",
+    "requested_on": "2026-10-20",
+    "service_code": "SVC-GLP1-SEMAGLUTIDE",
+    "label": "not_supported",
+    "scenario": "A1c 6.6 at goal",
+    "trap": false
+  },
+  {
+    "group": "eval",
+    "patient_id": "p-eval-16",
+    "patient_name": "Ivy Larsen",
+    "ordering_provider": "Dr. Emily Chen",
+    "requested_on": "2026-10-20",
+    "service_code": "SVC-GLP1-SEMAGLUTIDE",
+    "label": "needs_info",
+    "scenario": "latest A1c is 200 days old",
+    "trap": false
+  },
+  {
+    "group": "eval",
+    "patient_id": "p-eval-17",
+    "patient_name": "Ava Moreau",
+    "ordering_provider": "Dr. Emily Chen",
+    "requested_on": "2026-10-20",
+    "service_code": "SVC-GLP1-SEMAGLUTIDE",
+    "label": "not_supported",
+    "scenario": "no type 2 diabetes diagnosis",
+    "trap": false
+  },
+  {
+    "group": "eval",
+    "patient_id": "p-eval-18",
+    "patient_name": "Elena Tanaka",
+    "ordering_provider": "Dr. Emily Chen",
+    "requested_on": "2026-10-20",
+    "service_code": "SVC-GLP1-SEMAGLUTIDE",
+    "label": "needs_info",
+    "scenario": "metformin discussed but never started",
+    "trap": true
+  },
+  {
+    "group": "eval",
+    "patient_id": "p-eval-19",
+    "patient_name": "Ava Bennett",
+    "ordering_provider": "Dr. Emily Chen",
+    "requested_on": "2026-10-20",
+    "service_code": "SVC-GLP1-SEMAGLUTIDE",
+    "label": "ready",
+    "scenario": "metformin + A1c 7.4",
+    "trap": false
+  },
+  {
+    "group": "eval",
+    "patient_id": "p-eval-20",
+    "patient_name": "Liam Patel",
+    "ordering_provider": "Dr. Emily Chen",
+    "requested_on": "2026-10-20",
+    "service_code": "SVC-GLP1-SEMAGLUTIDE",
+    "label": "ready",
+    "scenario": "current A1c recorded only in the visit note",
+    "trap": true
+  },
+  {
+    "group": "eval",
+    "patient_id": "p-eval-21",
+    "patient_name": "Mia Nguyen",
+    "ordering_provider": "Dr. Emily Chen",
+    "requested_on": "2026-10-20",
+    "service_code": "SVC-MRI-KNEE",
+    "label": "ready",
+    "scenario": "PT x4 + recent X-ray",
+    "trap": false
+  },
+  {
+    "group": "eval",
+    "patient_id": "p-eval-22",
+    "patient_name": "Clara Brennan",
+    "ordering_provider": "Dr. Emily Chen",
+    "requested_on": "2026-10-20",
+    "service_code": "SVC-MRI-KNEE",
+    "label": "needs_info",
+    "scenario": "no knee X-ray",
+    "trap": false
+  },
+  {
+    "group": "eval",
+    "patient_id": "p-eval-23",
+    "patient_name": "Felix Ortiz",
+    "ordering_provider": "Dr. Emily Chen",
+    "requested_on": "2026-10-20",
+    "service_code": "SVC-MRI-KNEE",
+    "label": "needs_info",
+    "scenario": "X-ray is 120 days old",
+    "trap": false
+  },
+  {
+    "group": "eval",
+    "patient_id": "p-eval-24",
+    "patient_name": "Zoe Haddad",
+    "ordering_provider": "Dr. Emily Chen",
+    "requested_on": "2026-10-20",
+    "service_code": "SVC-MRI-KNEE",
+    "label": "ready",
+    "scenario": "acute meniscal tear with locking",
+    "trap": false
+  },
+  {
+    "group": "eval",
+    "patient_id": "p-eval-25",
+    "patient_name": "Nora Haddad",
+    "ordering_provider": "Dr. Emily Chen",
+    "requested_on": "2026-10-20",
+    "service_code": "SVC-MRI-KNEE",
+    "label": "not_supported",
+    "scenario": "2 weeks of knee pain, no injury",
+    "trap": false
+  },
+  {
+    "group": "eval",
+    "patient_id": "p-eval-26",
+    "patient_name": "Elena Bennett",
+    "ordering_provider": "Dr. Emily Chen",
+    "requested_on": "2026-10-20",
+    "service_code": "SVC-MRI-KNEE",
+    "label": "ready",
+    "scenario": "PT only in scanned records",
+    "trap": false
+  },
+  {
+    "group": "eval",
+    "patient_id": "p-eval-27",
+    "patient_name": "Noah Tanaka",
+    "ordering_provider": "Dr. Emily Chen",
+    "requested_on": "2026-10-20",
+    "service_code": "SVC-MRI-KNEE",
+    "label": "needs_info",
+    "scenario": "no conservative therapy documented",
+    "trap": false
+  },
+  {
+    "group": "eval",
+    "patient_id": "p-eval-28",
+    "patient_name": "Clara Bennett",
+    "ordering_provider": "Dr. Emily Chen",
+    "requested_on": "2026-10-20",
+    "service_code": "SVC-MRI-KNEE",
+    "label": "needs_info",
+    "scenario": "patient declined PT",
+    "trap": true
+  },
+  {
+    "group": "eval",
+    "patient_id": "p-eval-29",
+    "patient_name": "Elena Ortiz",
+    "ordering_provider": "Dr. Emily Chen",
+    "requested_on": "2026-10-20",
+    "service_code": "SVC-MRI-KNEE",
+    "label": "ready",
+    "scenario": "NSAID 6+ weeks + X-ray",
+    "trap": false
+  },
+  {
+    "group": "eval",
+    "patient_id": "p-eval-30",
+    "patient_name": "Ivy Okafor",
+    "ordering_provider": "Dr. Emily Chen",
+    "requested_on": "2026-10-20",
+    "service_code": "SVC-MRI-KNEE",
+    "label": "ready",
+    "scenario": "PT coded as local 'physiotherapy' procedures",
+    "trap": true
+  }
+]

@@ -1,0 +1,26 @@
+{
+  "p-linda-park": [
+    [
+      "med",
+      [
+        "6809",
+        "metformin 500 MG Oral Tablet",
+        "500 mg twice daily"
+      ],
+      650,
+      "stopped"
+    ],
+    [
+      "intolerance",
+      "metformin",
+      "Nausea and diarrhea (GI intolerance)",
+      495
+    ],
+    [
+      "note",
+      "Addendum - metformin history",
+      "Addendum: patient previously trialed metformin 500 mg BID from January to June 2025. Discontinued in June 2025 due to persistent GI intolerance (nausea, diarrhea) despite dose reduction. Not a candidate for re-challenge.",
+      0
+    ]
+  ]
+}

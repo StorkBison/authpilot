@@ -1,0 +1,203 @@
+{
+  "resourceType": "Bundle",
+  "type": "collection",
+  "entry": [
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "p-eval-07",
+        "name": [
+          {
+            "given": [
+              "Mia"
+            ],
+            "family": "Hughes"
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1991-08-14"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Condition",
+        "id": "p-eval-07-cond-1",
+        "subject": {
+          "reference": "Patient/p-eval-07"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "code": "active"
+            }
+          ],
+          "text": "active"
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "I10",
+              "display": "Essential hypertension"
+            }
+          ]
+        },
+        "onsetDateTime": "2020-04-14"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "p-eval-07-medi-2",
+        "subject": {
+          "reference": "Patient/p-eval-07"
+        },
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "29046",
+              "display": "lisinopril 10 MG Oral Tablet"
+            }
+          ]
+        },
+        "authoredOn": "2025-09-15",
+        "dosageInstruction": [
+          {
+            "text": "10 mg once daily"
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "p-eval-07-obse-3",
+        "subject": {
+          "reference": "Patient/p-eval-07"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8480-6",
+              "display": "Systolic BP"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 132,
+          "unit": "mm[Hg]"
+        },
+        "effectiveDateTime": "2025-10-23"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "p-eval-07-obse-4",
+        "subject": {
+          "reference": "Patient/p-eval-07"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8480-6",
+              "display": "Systolic BP"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 129,
+          "unit": "mm[Hg]"
+        },
+        "effectiveDateTime": "2026-04-06"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "p-eval-07-obse-5",
+        "subject": {
+          "reference": "Patient/p-eval-07"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8480-6",
+              "display": "Systolic BP"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 123,
+          "unit": "mm[Hg]"
+        },
+        "effectiveDateTime": "2026-09-19"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Condition",
+        "id": "p-eval-07-cond-6",
+        "subject": {
+          "reference": "Patient/p-eval-07"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "code": "active"
+            }
+          ],
+          "text": "active"
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "M54.41",
+              "display": "Low back pain with sciatica, right side"
+            }
+          ]
+        },
+        "onsetDateTime": "2026-08-21"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "p-eval-07-docu-7",
+        "subject": {
+          "reference": "Patient/p-eval-07"
+        },
+        "status": "current",
+        "type": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "11506-3",
+              "display": "Progress note"
+            }
+          ]
+        },
+        "description": "Outside PT summary",
+        "date": "2026-10-08",
+        "content": [
+          {
+            "attachment": {
+              "contentType": "text/plain",
+              "data": "Q29tcGxldGVkIDYgc2Vzc2lvbnMgb2YgcGh5c2ljYWwgdGhlcmFweSB3aXRoIHBhcnRpYWwgcmVsaWVmOyBob21lIGV4ZXJjaXNlcyBjb250aW51ZWQu"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,274 @@
+{
+  "resourceType": "Bundle",
+  "type": "collection",
+  "entry": [
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "p-eval-21",
+        "name": [
+          {
+            "given": [
+              "Mia"
+            ],
+            "family": "Nguyen"
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1995-04-17"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Condition",
+        "id": "p-eval-21-cond-1",
+        "subject": {
+          "reference": "Patient/p-eval-21"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "code": "active"
+            }
+          ],
+          "text": "active"
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "I10",
+              "display": "Essential hypertension"
+            }
+          ]
+        },
+        "onsetDateTime": "2022-08-11"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "p-eval-21-medi-2",
+        "subject": {
+          "reference": "Patient/p-eval-21"
+        },
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "29046",
+              "display": "lisinopril 10 MG Oral Tablet"
+            }
+          ]
+        },
+        "authoredOn": "2025-09-15",
+        "dosageInstruction": [
+          {
+            "text": "10 mg once daily"
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "p-eval-21-obse-3",
+        "subject": {
+          "reference": "Patient/p-eval-21"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8480-6",
+              "display": "Systolic BP"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 120,
+          "unit": "mm[Hg]"
+        },
+        "effectiveDateTime": "2026-02-20"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "p-eval-21-obse-4",
+        "subject": {
+          "reference": "Patient/p-eval-21"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8480-6",
+              "display": "Systolic BP"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 141,
+          "unit": "mm[Hg]"
+        },
+        "effectiveDateTime": "2025-11-09"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "p-eval-21-obse-5",
+        "subject": {
+          "reference": "Patient/p-eval-21"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8480-6",
+              "display": "Systolic BP"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 130,
+          "unit": "mm[Hg]"
+        },
+        "effectiveDateTime": "2026-04-13"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Condition",
+        "id": "p-eval-21-cond-6",
+        "subject": {
+          "reference": "Patient/p-eval-21"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "code": "active"
+            }
+          ],
+          "text": "active"
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "M25.561",
+              "display": "Pain in right knee"
+            }
+          ]
+        },
+        "onsetDateTime": "2026-08-21"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "p-eval-21-proc-7",
+        "subject": {
+          "reference": "Patient/p-eval-21"
+        },
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "91251008",
+              "display": "Physical therapy session"
+            }
+          ]
+        },
+        "performedDateTime": "2026-08-31"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "p-eval-21-proc-8",
+        "subject": {
+          "reference": "Patient/p-eval-21"
+        },
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "91251008",
+              "display": "Physical therapy session"
+            }
+          ]
+        },
+        "performedDateTime": "2026-09-07"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "p-eval-21-proc-9",
+        "subject": {
+          "reference": "Patient/p-eval-21"
+        },
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "91251008",
+              "display": "Physical therapy session"
+            }
+          ]
+        },
+        "performedDateTime": "2026-09-14"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "p-eval-21-proc-10",
+        "subject": {
+          "reference": "Patient/p-eval-21"
+        },
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "91251008",
+              "display": "Physical therapy session"
+            }
+          ]
+        },
+        "performedDateTime": "2026-09-21"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "p-eval-21-proc-11",
+        "subject": {
+          "reference": "Patient/p-eval-21"
+        },
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://riverside-clinic.example/codes",
+              "code": "XR-KNEE",
+              "display": "X-ray right knee, weight-bearing, 3 views"
+            }
+          ]
+        },
+        "performedDateTime": "2026-09-30"
+      }
+    }
+  ]
+}

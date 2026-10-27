@@ -1,0 +1,223 @@
+{
+  "resourceType": "Bundle",
+  "type": "collection",
+  "entry": [
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "p-eval-24",
+        "name": [
+          {
+            "given": [
+              "Zoe"
+            ],
+            "family": "Haddad"
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1963-01-14"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Condition",
+        "id": "p-eval-24-cond-1",
+        "subject": {
+          "reference": "Patient/p-eval-24"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "code": "active"
+            }
+          ],
+          "text": "active"
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "I10",
+              "display": "Essential hypertension"
+            }
+          ]
+        },
+        "onsetDateTime": "2022-03-24"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "p-eval-24-medi-2",
+        "subject": {
+          "reference": "Patient/p-eval-24"
+        },
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "29046",
+              "display": "lisinopril 10 MG Oral Tablet"
+            }
+          ]
+        },
+        "authoredOn": "2025-09-15",
+        "dosageInstruction": [
+          {
+            "text": "10 mg once daily"
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "p-eval-24-obse-3",
+        "subject": {
+          "reference": "Patient/p-eval-24"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8480-6",
+              "display": "Systolic BP"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 142,
+          "unit": "mm[Hg]"
+        },
+        "effectiveDateTime": "2026-05-04"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "p-eval-24-obse-4",
+        "subject": {
+          "reference": "Patient/p-eval-24"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8480-6",
+              "display": "Systolic BP"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 136,
+          "unit": "mm[Hg]"
+        },
+        "effectiveDateTime": "2026-01-17"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "p-eval-24-obse-5",
+        "subject": {
+          "reference": "Patient/p-eval-24"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8480-6",
+              "display": "Systolic BP"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 128,
+          "unit": "mm[Hg]"
+        },
+        "effectiveDateTime": "2026-05-30"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Condition",
+        "id": "p-eval-24-cond-6",
+        "subject": {
+          "reference": "Patient/p-eval-24"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "code": "active"
+            }
+          ],
+          "text": "active"
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "S83.241A",
+              "display": "Tear of medial meniscus, right knee"
+            }
+          ]
+        },
+        "onsetDateTime": "2026-10-13"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "p-eval-24-proc-7",
+        "subject": {
+          "reference": "Patient/p-eval-24"
+        },
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://riverside-clinic.example/codes",
+              "code": "XR-KNEE",
+              "display": "X-ray right knee, weight-bearing, 3 views"
+            }
+          ]
+        },
+        "performedDateTime": "2026-10-15"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "p-eval-24-docu-8",
+        "subject": {
+          "reference": "Patient/p-eval-24"
+        },
+        "status": "current",
+        "type": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "11506-3",
+              "display": "Progress note"
+            }
+          ]
+        },
+        "description": "Sports medicine",
+        "date": "2026-10-15",
+        "content": [
+          {
+            "attachment": {
+              "contentType": "text/plain",
+              "data": "VHdpc3RpbmcgaW5qdXJ5IDEgd2VlayBhZ287IGtuZWUgbG9ja3MgaW50ZXJtaXR0ZW50bHkgYW5kIGdpdmVzIHdheS4="
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

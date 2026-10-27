@@ -1,0 +1,230 @@
+{
+  "resourceType": "Bundle",
+  "type": "collection",
+  "entry": [
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "p-eval-03",
+        "name": [
+          {
+            "given": [
+              "Liam"
+            ],
+            "family": "Okafor"
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1989-04-17"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Condition",
+        "id": "p-eval-03-cond-1",
+        "subject": {
+          "reference": "Patient/p-eval-03"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "code": "active"
+            }
+          ],
+          "text": "active"
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "I10",
+              "display": "Essential hypertension"
+            }
+          ]
+        },
+        "onsetDateTime": "2018-08-26"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "p-eval-03-medi-2",
+        "subject": {
+          "reference": "Patient/p-eval-03"
+        },
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "29046",
+              "display": "lisinopril 10 MG Oral Tablet"
+            }
+          ]
+        },
+        "authoredOn": "2025-09-15",
+        "dosageInstruction": [
+          {
+            "text": "10 mg once daily"
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "p-eval-03-obse-3",
+        "subject": {
+          "reference": "Patient/p-eval-03"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8480-6",
+              "display": "Systolic BP"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 136,
+          "unit": "mm[Hg]"
+        },
+        "effectiveDateTime": "2026-02-24"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "p-eval-03-obse-4",
+        "subject": {
+          "reference": "Patient/p-eval-03"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8480-6",
+              "display": "Systolic BP"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 132,
+          "unit": "mm[Hg]"
+        },
+        "effectiveDateTime": "2026-04-23"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "p-eval-03-obse-5",
+        "subject": {
+          "reference": "Patient/p-eval-03"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8480-6",
+              "display": "Systolic BP"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 129,
+          "unit": "mm[Hg]"
+        },
+        "effectiveDateTime": "2026-02-04"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Condition",
+        "id": "p-eval-03-cond-6",
+        "subject": {
+          "reference": "Patient/p-eval-03"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "code": "active"
+            }
+          ],
+          "text": "active"
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "M54.16",
+              "display": "Radiculopathy, lumbar region"
+            }
+          ]
+        },
+        "onsetDateTime": "2026-10-06"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Condition",
+        "id": "p-eval-03-cond-7",
+        "subject": {
+          "reference": "Patient/p-eval-03"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "code": "active"
+            }
+          ],
+          "text": "active"
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "M21.371",
+              "display": "Foot drop, right foot"
+            }
+          ]
+        },
+        "onsetDateTime": "2026-10-10"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "p-eval-03-docu-8",
+        "subject": {
+          "reference": "Patient/p-eval-03"
+        },
+        "status": "current",
+        "type": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "11506-3",
+              "display": "Progress note"
+            }
+          ]
+        },
+        "description": "Urgent visit",
+        "date": "2026-10-18",
+        "content": [
+          {
+            "attachment": {
+              "contentType": "text/plain",
+              "data": "TmV3IHJpZ2h0IGZvb3QgZHJvcCBvdmVyIDEwIGRheXMgd2l0aCBMNSByYWRpY3VsYXIgcGFpbi4gUHJvZ3Jlc3NpdmUgd2Vha25lc3Mgb2YgYW5rbGUgZG9yc2lmbGV4aW9uIDMvNS4="
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

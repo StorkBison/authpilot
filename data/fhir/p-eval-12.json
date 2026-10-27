@@ -1,0 +1,221 @@
+{
+  "resourceType": "Bundle",
+  "type": "collection",
+  "entry": [
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "p-eval-12",
+        "name": [
+          {
+            "given": [
+              "Felix"
+            ],
+            "family": "Hughes"
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1993-09-16"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Condition",
+        "id": "p-eval-12-cond-1",
+        "subject": {
+          "reference": "Patient/p-eval-12"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "code": "active"
+            }
+          ],
+          "text": "active"
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "I10",
+              "display": "Essential hypertension"
+            }
+          ]
+        },
+        "onsetDateTime": "2020-02-24"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "p-eval-12-medi-2",
+        "subject": {
+          "reference": "Patient/p-eval-12"
+        },
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "29046",
+              "display": "lisinopril 10 MG Oral Tablet"
+            }
+          ]
+        },
+        "authoredOn": "2025-09-15",
+        "dosageInstruction": [
+          {
+            "text": "10 mg once daily"
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "p-eval-12-obse-3",
+        "subject": {
+          "reference": "Patient/p-eval-12"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8480-6",
+              "display": "Systolic BP"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 133,
+          "unit": "mm[Hg]"
+        },
+        "effectiveDateTime": "2026-03-10"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "p-eval-12-obse-4",
+        "subject": {
+          "reference": "Patient/p-eval-12"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8480-6",
+              "display": "Systolic BP"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 138,
+          "unit": "mm[Hg]"
+        },
+        "effectiveDateTime": "2026-03-13"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "p-eval-12-obse-5",
+        "subject": {
+          "reference": "Patient/p-eval-12"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8480-6",
+              "display": "Systolic BP"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 130,
+          "unit": "mm[Hg]"
+        },
+        "effectiveDateTime": "2026-08-08"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Condition",
+        "id": "p-eval-12-cond-6",
+        "subject": {
+          "reference": "Patient/p-eval-12"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "code": "active"
+            }
+          ],
+          "text": "active"
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "E11.9",
+              "display": "Type 2 diabetes mellitus without complications"
+            }
+          ]
+        },
+        "onsetDateTime": "2020-03-25"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "p-eval-12-obse-7",
+        "subject": {
+          "reference": "Patient/p-eval-12"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "4548-4",
+              "display": "Hemoglobin A1c"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 7.9,
+          "unit": "%"
+        },
+        "effectiveDateTime": "2026-09-05"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "AllergyIntolerance",
+        "id": "p-eval-12-alle-8",
+        "subject": {
+          "reference": "Patient/p-eval-12"
+        },
+        "type": "intolerance",
+        "code": {
+          "text": "metformin"
+        },
+        "reaction": [
+          {
+            "manifestation": [
+              {
+                "text": "Diarrhea"
+              }
+            ]
+          }
+        ],
+        "recordedDate": "2025-12-24"
+      }
+    }
+  ]
+}

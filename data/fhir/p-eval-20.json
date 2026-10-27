@@ -1,0 +1,253 @@
+{
+  "resourceType": "Bundle",
+  "type": "collection",
+  "entry": [
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "p-eval-20",
+        "name": [
+          {
+            "given": [
+              "Liam"
+            ],
+            "family": "Patel"
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1962-06-13"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Condition",
+        "id": "p-eval-20-cond-1",
+        "subject": {
+          "reference": "Patient/p-eval-20"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "code": "active"
+            }
+          ],
+          "text": "active"
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "I10",
+              "display": "Essential hypertension"
+            }
+          ]
+        },
+        "onsetDateTime": "2019-03-15"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "p-eval-20-medi-2",
+        "subject": {
+          "reference": "Patient/p-eval-20"
+        },
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "29046",
+              "display": "lisinopril 10 MG Oral Tablet"
+            }
+          ]
+        },
+        "authoredOn": "2025-09-15",
+        "dosageInstruction": [
+          {
+            "text": "10 mg once daily"
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "p-eval-20-obse-3",
+        "subject": {
+          "reference": "Patient/p-eval-20"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8480-6",
+              "display": "Systolic BP"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 133,
+          "unit": "mm[Hg]"
+        },
+        "effectiveDateTime": "2025-11-15"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "p-eval-20-obse-4",
+        "subject": {
+          "reference": "Patient/p-eval-20"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8480-6",
+              "display": "Systolic BP"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 138,
+          "unit": "mm[Hg]"
+        },
+        "effectiveDateTime": "2025-11-22"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "p-eval-20-obse-5",
+        "subject": {
+          "reference": "Patient/p-eval-20"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8480-6",
+              "display": "Systolic BP"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 129,
+          "unit": "mm[Hg]"
+        },
+        "effectiveDateTime": "2026-09-30"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Condition",
+        "id": "p-eval-20-cond-6",
+        "subject": {
+          "reference": "Patient/p-eval-20"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "code": "active"
+            }
+          ],
+          "text": "active"
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "E11.9",
+              "display": "Type 2 diabetes mellitus without complications"
+            }
+          ]
+        },
+        "onsetDateTime": "2020-03-25"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "p-eval-20-medi-7",
+        "subject": {
+          "reference": "Patient/p-eval-20"
+        },
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "6809",
+              "display": "metformin 500 MG Oral Tablet"
+            }
+          ]
+        },
+        "authoredOn": "2024-11-19",
+        "dosageInstruction": [
+          {
+            "text": "500 mg twice daily"
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "p-eval-20-obse-8",
+        "subject": {
+          "reference": "Patient/p-eval-20"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "4548-4",
+              "display": "Hemoglobin A1c"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 8.6,
+          "unit": "%"
+        },
+        "effectiveDateTime": "2026-02-22"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "p-eval-20-docu-9",
+        "subject": {
+          "reference": "Patient/p-eval-20"
+        },
+        "status": "current",
+        "type": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "11506-3",
+              "display": "Progress note"
+            }
+          ]
+        },
+        "description": "Diabetes visit",
+        "date": "2026-10-14",
+        "content": [
+          {
+            "attachment": {
+              "contentType": "text/plain",
+              "data": "UG9pbnQtb2YtY2FyZSBIYkExYyB0b2RheTogOC4zJS4gQWRoZXJlbnQgdG8gbWV0Zm9ybWluIDEwMDAgbWcgQklELg=="
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

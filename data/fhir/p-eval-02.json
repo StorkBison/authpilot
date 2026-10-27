@@ -1,0 +1,200 @@
+{
+  "resourceType": "Bundle",
+  "type": "collection",
+  "entry": [
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "p-eval-02",
+        "name": [
+          {
+            "given": [
+              "Miles"
+            ],
+            "family": "Kowalski"
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1986-05-18"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Condition",
+        "id": "p-eval-02-cond-1",
+        "subject": {
+          "reference": "Patient/p-eval-02"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "code": "active"
+            }
+          ],
+          "text": "active"
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "I10",
+              "display": "Essential hypertension"
+            }
+          ]
+        },
+        "onsetDateTime": "2022-08-02"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "p-eval-02-medi-2",
+        "subject": {
+          "reference": "Patient/p-eval-02"
+        },
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "29046",
+              "display": "lisinopril 10 MG Oral Tablet"
+            }
+          ]
+        },
+        "authoredOn": "2025-09-15",
+        "dosageInstruction": [
+          {
+            "text": "10 mg once daily"
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "p-eval-02-obse-3",
+        "subject": {
+          "reference": "Patient/p-eval-02"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8480-6",
+              "display": "Systolic BP"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 138,
+          "unit": "mm[Hg]"
+        },
+        "effectiveDateTime": "2026-08-09"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "p-eval-02-obse-4",
+        "subject": {
+          "reference": "Patient/p-eval-02"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8480-6",
+              "display": "Systolic BP"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 124,
+          "unit": "mm[Hg]"
+        },
+        "effectiveDateTime": "2025-12-07"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "p-eval-02-obse-5",
+        "subject": {
+          "reference": "Patient/p-eval-02"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8480-6",
+              "display": "Systolic BP"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 129,
+          "unit": "mm[Hg]"
+        },
+        "effectiveDateTime": "2025-12-12"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Condition",
+        "id": "p-eval-02-cond-6",
+        "subject": {
+          "reference": "Patient/p-eval-02"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "code": "active"
+            }
+          ],
+          "text": "active"
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "M54.41",
+              "display": "Low back pain with sciatica, right side"
+            }
+          ]
+        },
+        "onsetDateTime": "2026-08-31"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "p-eval-02-medi-7",
+        "subject": {
+          "reference": "Patient/p-eval-02"
+        },
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "7258",
+              "display": "naproxen 500 MG Oral Tablet"
+            }
+          ]
+        },
+        "authoredOn": "2026-09-02",
+        "dosageInstruction": [
+          {
+            "text": "500 mg twice daily with food"
+          }
+        ]
+      }
+    }
+  ]
+}

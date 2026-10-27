@@ -1,0 +1,214 @@
+{
+  "resourceType": "Bundle",
+  "type": "collection",
+  "entry": [
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "p-eval-10",
+        "name": [
+          {
+            "given": [
+              "Hazel"
+            ],
+            "family": "Patel"
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1955-03-12"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Condition",
+        "id": "p-eval-10-cond-1",
+        "subject": {
+          "reference": "Patient/p-eval-10"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "code": "active"
+            }
+          ],
+          "text": "active"
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "I10",
+              "display": "Essential hypertension"
+            }
+          ]
+        },
+        "onsetDateTime": "2022-01-04"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "p-eval-10-medi-2",
+        "subject": {
+          "reference": "Patient/p-eval-10"
+        },
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "29046",
+              "display": "lisinopril 10 MG Oral Tablet"
+            }
+          ]
+        },
+        "authoredOn": "2025-09-15",
+        "dosageInstruction": [
+          {
+            "text": "10 mg once daily"
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "p-eval-10-obse-3",
+        "subject": {
+          "reference": "Patient/p-eval-10"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8480-6",
+              "display": "Systolic BP"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 133,
+          "unit": "mm[Hg]"
+        },
+        "effectiveDateTime": "2025-10-28"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "p-eval-10-obse-4",
+        "subject": {
+          "reference": "Patient/p-eval-10"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8480-6",
+              "display": "Systolic BP"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 136,
+          "unit": "mm[Hg]"
+        },
+        "effectiveDateTime": "2026-06-03"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "p-eval-10-obse-5",
+        "subject": {
+          "reference": "Patient/p-eval-10"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8480-6",
+              "display": "Systolic BP"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 123,
+          "unit": "mm[Hg]"
+        },
+        "effectiveDateTime": "2026-09-24"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Condition",
+        "id": "p-eval-10-cond-6",
+        "subject": {
+          "reference": "Patient/p-eval-10"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "code": "active"
+            }
+          ],
+          "text": "active"
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "M54.41",
+              "display": "Low back pain with sciatica, right side"
+            }
+          ]
+        },
+        "onsetDateTime": "2026-09-20"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "p-eval-10-proc-7",
+        "subject": {
+          "reference": "Patient/p-eval-10"
+        },
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "91251008",
+              "display": "Physical therapy session"
+            }
+          ]
+        },
+        "performedDateTime": "2026-09-25"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "p-eval-10-proc-8",
+        "subject": {
+          "reference": "Patient/p-eval-10"
+        },
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "91251008",
+              "display": "Physical therapy session"
+            }
+          ]
+        },
+        "performedDateTime": "2026-10-02"
+      }
+    }
+  ]
+}

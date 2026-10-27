@@ -1,0 +1,277 @@
+{
+  "resourceType": "Bundle",
+  "type": "collection",
+  "entry": [
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "p-linda-park",
+        "name": [
+          {
+            "given": [
+              "Linda"
+            ],
+            "family": "Park"
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1965-07-02"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Condition",
+        "id": "p-linda-park-cond-1",
+        "subject": {
+          "reference": "Patient/p-linda-park"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "code": "active"
+            }
+          ],
+          "text": "active"
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "I10",
+              "display": "Essential hypertension"
+            }
+          ]
+        },
+        "onsetDateTime": "2023-07-23"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "p-linda-park-medi-2",
+        "subject": {
+          "reference": "Patient/p-linda-park"
+        },
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "29046",
+              "display": "lisinopril 10 MG Oral Tablet"
+            }
+          ]
+        },
+        "authoredOn": "2025-09-15",
+        "dosageInstruction": [
+          {
+            "text": "10 mg once daily"
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "p-linda-park-obse-3",
+        "subject": {
+          "reference": "Patient/p-linda-park"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8480-6",
+              "display": "Systolic BP"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 134,
+          "unit": "mm[Hg]"
+        },
+        "effectiveDateTime": "2026-03-27"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "p-linda-park-obse-4",
+        "subject": {
+          "reference": "Patient/p-linda-park"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8480-6",
+              "display": "Systolic BP"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 124,
+          "unit": "mm[Hg]"
+        },
+        "effectiveDateTime": "2025-12-06"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "p-linda-park-obse-5",
+        "subject": {
+          "reference": "Patient/p-linda-park"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8480-6",
+              "display": "Systolic BP"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 119,
+          "unit": "mm[Hg]"
+        },
+        "effectiveDateTime": "2026-09-01"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Condition",
+        "id": "p-linda-park-cond-6",
+        "subject": {
+          "reference": "Patient/p-linda-park"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "code": "active"
+            }
+          ],
+          "text": "active"
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "E11.9",
+              "display": "Type 2 diabetes mellitus without complications"
+            }
+          ]
+        },
+        "onsetDateTime": "2020-03-25"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "p-linda-park-obse-7",
+        "subject": {
+          "reference": "Patient/p-linda-park"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "4548-4",
+              "display": "Hemoglobin A1c"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 7.6,
+          "unit": "%"
+        },
+        "effectiveDateTime": "2026-03-24"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "p-linda-park-obse-8",
+        "subject": {
+          "reference": "Patient/p-linda-park"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "4548-4",
+              "display": "Hemoglobin A1c"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 8.1,
+          "unit": "%"
+        },
+        "effectiveDateTime": "2026-09-20"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "p-linda-park-medi-9",
+        "subject": {
+          "reference": "Patient/p-linda-park"
+        },
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "83367",
+              "display": "atorvastatin 20 MG Oral Tablet"
+            }
+          ]
+        },
+        "authoredOn": "2025-06-07",
+        "dosageInstruction": [
+          {
+            "text": "20 mg nightly"
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "p-linda-park-docu-10",
+        "subject": {
+          "reference": "Patient/p-linda-park"
+        },
+        "status": "current",
+        "type": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "11506-3",
+              "display": "Progress note"
+            }
+          ]
+        },
+        "description": "Diabetes follow-up",
+        "date": "2026-09-20",
+        "content": [
+          {
+            "attachment": {
+              "contentType": "text/plain",
+              "data": "SGJBMWMgOC4xJSwgdXAgZnJvbSA3LjYlIGluIHRoZSBzcHJpbmcgZGVzcGl0ZSBkaWV0IGNoYW5nZXMuIFdlaWdodCA5NCBrZy4gRGlzY3Vzc2VkIEdMUC0xIHJlY2VwdG9yIGFnb25pc3QgdGhlcmFweSBmb3IgZ2x5Y2FlbWljIGNvbnRyb2wgYW5kIHdlaWdodC4gUGxhbjogc3RhcnQgc2VtYWdsdXRpZGUgMC4yNSBtZyB3ZWVrbHksIHRpdHJhdGUgbW9udGhseS4="
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,281 @@
+{
+  "resourceType": "Bundle",
+  "type": "collection",
+  "entry": [
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "p-robert-diaz",
+        "name": [
+          {
+            "given": [
+              "Robert"
+            ],
+            "family": "Diaz"
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1988-11-23"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Condition",
+        "id": "p-robert-diaz-cond-1",
+        "subject": {
+          "reference": "Patient/p-robert-diaz"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "code": "active"
+            }
+          ],
+          "text": "active"
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "I10",
+              "display": "Essential hypertension"
+            }
+          ]
+        },
+        "onsetDateTime": "2023-08-25"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "p-robert-diaz-medi-2",
+        "subject": {
+          "reference": "Patient/p-robert-diaz"
+        },
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "29046",
+              "display": "lisinopril 10 MG Oral Tablet"
+            }
+          ]
+        },
+        "authoredOn": "2025-09-15",
+        "dosageInstruction": [
+          {
+            "text": "10 mg once daily"
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "p-robert-diaz-obse-3",
+        "subject": {
+          "reference": "Patient/p-robert-diaz"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8480-6",
+              "display": "Systolic BP"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 125,
+          "unit": "mm[Hg]"
+        },
+        "effectiveDateTime": "2026-02-20"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "p-robert-diaz-obse-4",
+        "subject": {
+          "reference": "Patient/p-robert-diaz"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8480-6",
+              "display": "Systolic BP"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 120,
+          "unit": "mm[Hg]"
+        },
+        "effectiveDateTime": "2026-02-28"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "p-robert-diaz-obse-5",
+        "subject": {
+          "reference": "Patient/p-robert-diaz"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8480-6",
+              "display": "Systolic BP"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 135,
+          "unit": "mm[Hg]"
+        },
+        "effectiveDateTime": "2026-08-26"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Condition",
+        "id": "p-robert-diaz-cond-6",
+        "subject": {
+          "reference": "Patient/p-robert-diaz"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "code": "active"
+            }
+          ],
+          "text": "active"
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "M25.561",
+              "display": "Pain in right knee"
+            }
+          ]
+        },
+        "onsetDateTime": "2026-08-11"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "p-robert-diaz-proc-7",
+        "subject": {
+          "reference": "Patient/p-robert-diaz"
+        },
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://riverside-clinic.example/codes",
+              "code": "XR-KNEE",
+              "display": "X-ray right knee, weight-bearing, 3 views"
+            }
+          ]
+        },
+        "performedDateTime": "2026-09-29"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "p-robert-diaz-docu-8",
+        "subject": {
+          "reference": "Patient/p-robert-diaz"
+        },
+        "status": "current",
+        "type": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "11506-3",
+              "display": "Progress note"
+            }
+          ]
+        },
+        "description": "Office visit - right knee pain",
+        "date": "2026-08-11",
+        "content": [
+          {
+            "attachment": {
+              "contentType": "text/plain",
+              "data": "UmlnaHQga25lZSBwYWluIGZvciAxIHdlZWsgYWZ0ZXIgcmVjcmVhdGlvbmFsIHNvY2Nlci4gTm8gbG9ja2luZyBvciBnaXZpbmcgd2F5LiBNaWxkIGVmZnVzaW9uLiBQbGFuOiBhY3Rpdml0eSBtb2RpZmljYXRpb24gYW5kIHBoeXNpY2FsIHRoZXJhcHkgcmVmZXJyYWwu"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "p-robert-diaz-docu-9",
+        "subject": {
+          "reference": "Patient/p-robert-diaz"
+        },
+        "status": "current",
+        "type": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "11506-3",
+              "display": "Progress note"
+            }
+          ]
+        },
+        "description": "Outside records (scanned) - physical therapy discharge summary",
+        "date": "2026-10-02",
+        "content": [
+          {
+            "attachment": {
+              "contentType": "text/plain",
+              "data": "Uml2ZXJzaWRlIFBoeXNpY2FsIFRoZXJhcHkuIFBhdGllbnQgY29tcGxldGVkIDggc2Vzc2lvbnMgb2YgcGh5c2ljYWwgdGhlcmFweSBiZXR3ZWVuIDIwMjYtMDgtMTggYW5kIDIwMjYtMTAtMDIgZm9yIHJpZ2h0IGtuZWUgcGFpbi4gSG9tZSBleGVyY2lzZSBwcm9ncmFtIGVzdGFibGlzaGVkLiBNaW5pbWFsIGltcHJvdmVtZW50IGluIHBhaW4gd2l0aCBzdGFpcnMgYW5kIHBpdm90aW5nLiBSZWNvbW1lbmQgZm9sbG93LXVwIHdpdGggcmVmZXJyaW5nIHBoeXNpY2lhbiBmb3IgYWR2YW5jZWQgaW1hZ2luZy4="
+            }
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "p-robert-diaz-docu-10",
+        "subject": {
+          "reference": "Patient/p-robert-diaz"
+        },
+        "status": "current",
+        "type": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "11506-3",
+              "display": "Progress note"
+            }
+          ]
+        },
+        "description": "Follow-up - knee pain not improving",
+        "date": "2026-10-16",
+        "content": [
+          {
+            "attachment": {
+              "contentType": "text/plain",
+              "data": "UGVyc2lzdGVudCBtZWRpYWwgcmlnaHQga25lZSBwYWluIGRlc3BpdGUgY29tcGxldGluZyBwaHlzaWNhbCB0aGVyYXB5LiBYLXJheSB1bnJlbWFya2FibGUuIENvbmNlcm4gZm9yIG1lbmlzY2FsIHBhdGhvbG9neS4gT3JkZXJpbmcgTVJJIHJpZ2h0IGtuZWUu"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

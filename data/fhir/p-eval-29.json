@@ -1,0 +1,220 @@
+{
+  "resourceType": "Bundle",
+  "type": "collection",
+  "entry": [
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "p-eval-29",
+        "name": [
+          {
+            "given": [
+              "Elena"
+            ],
+            "family": "Ortiz"
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1994-09-14"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Condition",
+        "id": "p-eval-29-cond-1",
+        "subject": {
+          "reference": "Patient/p-eval-29"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "code": "active"
+            }
+          ],
+          "text": "active"
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "I10",
+              "display": "Essential hypertension"
+            }
+          ]
+        },
+        "onsetDateTime": "2022-05-05"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "p-eval-29-medi-2",
+        "subject": {
+          "reference": "Patient/p-eval-29"
+        },
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "29046",
+              "display": "lisinopril 10 MG Oral Tablet"
+            }
+          ]
+        },
+        "authoredOn": "2025-09-15",
+        "dosageInstruction": [
+          {
+            "text": "10 mg once daily"
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "p-eval-29-obse-3",
+        "subject": {
+          "reference": "Patient/p-eval-29"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8480-6",
+              "display": "Systolic BP"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 121,
+          "unit": "mm[Hg]"
+        },
+        "effectiveDateTime": "2026-02-13"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "p-eval-29-obse-4",
+        "subject": {
+          "reference": "Patient/p-eval-29"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8480-6",
+              "display": "Systolic BP"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 130,
+          "unit": "mm[Hg]"
+        },
+        "effectiveDateTime": "2026-07-22"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "p-eval-29-obse-5",
+        "subject": {
+          "reference": "Patient/p-eval-29"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8480-6",
+              "display": "Systolic BP"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 132,
+          "unit": "mm[Hg]"
+        },
+        "effectiveDateTime": "2026-03-01"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Condition",
+        "id": "p-eval-29-cond-6",
+        "subject": {
+          "reference": "Patient/p-eval-29"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "code": "active"
+            }
+          ],
+          "text": "active"
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "M25.561",
+              "display": "Pain in right knee"
+            }
+          ]
+        },
+        "onsetDateTime": "2026-08-31"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "p-eval-29-medi-7",
+        "subject": {
+          "reference": "Patient/p-eval-29"
+        },
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "5640",
+              "display": "ibuprofen 600 MG Oral Tablet"
+            }
+          ]
+        },
+        "authoredOn": "2026-09-05",
+        "dosageInstruction": [
+          {
+            "text": "600 mg three times daily as needed"
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "p-eval-29-proc-8",
+        "subject": {
+          "reference": "Patient/p-eval-29"
+        },
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://riverside-clinic.example/codes",
+              "code": "XR-KNEE",
+              "display": "X-ray right knee, weight-bearing, 3 views"
+            }
+          ]
+        },
+        "performedDateTime": "2026-09-20"
+      }
+    }
+  ]
+}

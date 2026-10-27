@@ -1,0 +1,227 @@
+{
+  "resourceType": "Bundle",
+  "type": "collection",
+  "entry": [
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "p-eval-13",
+        "name": [
+          {
+            "given": [
+              "Noah"
+            ],
+            "family": "Schmidt"
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1963-08-12"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Condition",
+        "id": "p-eval-13-cond-1",
+        "subject": {
+          "reference": "Patient/p-eval-13"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "code": "active"
+            }
+          ],
+          "text": "active"
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "I10",
+              "display": "Essential hypertension"
+            }
+          ]
+        },
+        "onsetDateTime": "2023-05-19"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "p-eval-13-medi-2",
+        "subject": {
+          "reference": "Patient/p-eval-13"
+        },
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "29046",
+              "display": "lisinopril 10 MG Oral Tablet"
+            }
+          ]
+        },
+        "authoredOn": "2025-09-15",
+        "dosageInstruction": [
+          {
+            "text": "10 mg once daily"
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "p-eval-13-obse-3",
+        "subject": {
+          "reference": "Patient/p-eval-13"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8480-6",
+              "display": "Systolic BP"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 121,
+          "unit": "mm[Hg]"
+        },
+        "effectiveDateTime": "2026-04-09"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "p-eval-13-obse-4",
+        "subject": {
+          "reference": "Patient/p-eval-13"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8480-6",
+              "display": "Systolic BP"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 118,
+          "unit": "mm[Hg]"
+        },
+        "effectiveDateTime": "2025-11-27"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "p-eval-13-obse-5",
+        "subject": {
+          "reference": "Patient/p-eval-13"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8480-6",
+              "display": "Systolic BP"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 136,
+          "unit": "mm[Hg]"
+        },
+        "effectiveDateTime": "2026-09-04"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Condition",
+        "id": "p-eval-13-cond-6",
+        "subject": {
+          "reference": "Patient/p-eval-13"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "code": "active"
+            }
+          ],
+          "text": "active"
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "E11.9",
+              "display": "Type 2 diabetes mellitus without complications"
+            }
+          ]
+        },
+        "onsetDateTime": "2020-03-25"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "p-eval-13-obse-7",
+        "subject": {
+          "reference": "Patient/p-eval-13"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "4548-4",
+              "display": "Hemoglobin A1c"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 9.0,
+          "unit": "%"
+        },
+        "effectiveDateTime": "2026-10-10"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "p-eval-13-docu-8",
+        "subject": {
+          "reference": "Patient/p-eval-13"
+        },
+        "status": "current",
+        "type": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "11506-3",
+              "display": "Progress note"
+            }
+          ]
+        },
+        "description": "Diabetes visit",
+        "date": "2026-10-10",
+        "content": [
+          {
+            "attachment": {
+              "contentType": "text/plain",
+              "data": "TWV0Zm9ybWluIHdhcyBzdG9wcGVkIGFmdGVyIDMgbW9udGhzIGJlY2F1c2Ugb2Ygc2V2ZXJlIGRpYXJyaGVhLiBBMWMgOS4wJSB0b2RheS4="
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

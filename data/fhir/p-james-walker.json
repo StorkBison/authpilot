@@ -1,0 +1,378 @@
+{
+  "resourceType": "Bundle",
+  "type": "collection",
+  "entry": [
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "p-james-walker",
+        "name": [
+          {
+            "given": [
+              "James"
+            ],
+            "family": "Walker"
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1974-03-14"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Condition",
+        "id": "p-james-walker-cond-1",
+        "subject": {
+          "reference": "Patient/p-james-walker"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "code": "active"
+            }
+          ],
+          "text": "active"
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "I10",
+              "display": "Essential hypertension"
+            }
+          ]
+        },
+        "onsetDateTime": "2020-12-24"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "p-james-walker-medi-2",
+        "subject": {
+          "reference": "Patient/p-james-walker"
+        },
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "29046",
+              "display": "lisinopril 10 MG Oral Tablet"
+            }
+          ]
+        },
+        "authoredOn": "2025-09-15",
+        "dosageInstruction": [
+          {
+            "text": "10 mg once daily"
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "p-james-walker-obse-3",
+        "subject": {
+          "reference": "Patient/p-james-walker"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8480-6",
+              "display": "Systolic BP"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 119,
+          "unit": "mm[Hg]"
+        },
+        "effectiveDateTime": "2026-07-15"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "p-james-walker-obse-4",
+        "subject": {
+          "reference": "Patient/p-james-walker"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8480-6",
+              "display": "Systolic BP"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 120,
+          "unit": "mm[Hg]"
+        },
+        "effectiveDateTime": "2026-03-12"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "p-james-walker-obse-5",
+        "subject": {
+          "reference": "Patient/p-james-walker"
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8480-6",
+              "display": "Systolic BP"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 135,
+          "unit": "mm[Hg]"
+        },
+        "effectiveDateTime": "2025-11-01"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Condition",
+        "id": "p-james-walker-cond-6",
+        "subject": {
+          "reference": "Patient/p-james-walker"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "code": "active"
+            }
+          ],
+          "text": "active"
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "M54.41",
+              "display": "Low back pain with sciatica, right side"
+            }
+          ]
+        },
+        "onsetDateTime": "2026-08-25"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "p-james-walker-medi-7",
+        "subject": {
+          "reference": "Patient/p-james-walker"
+        },
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "7258",
+              "display": "naproxen 500 MG Oral Tablet"
+            }
+          ]
+        },
+        "authoredOn": "2026-08-25",
+        "dosageInstruction": [
+          {
+            "text": "500 mg twice daily with food"
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "p-james-walker-proc-8",
+        "subject": {
+          "reference": "Patient/p-james-walker"
+        },
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "91251008",
+              "display": "Physical therapy session"
+            }
+          ]
+        },
+        "performedDateTime": "2026-09-01"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "p-james-walker-proc-9",
+        "subject": {
+          "reference": "Patient/p-james-walker"
+        },
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "91251008",
+              "display": "Physical therapy session"
+            }
+          ]
+        },
+        "performedDateTime": "2026-09-08"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "p-james-walker-proc-10",
+        "subject": {
+          "reference": "Patient/p-james-walker"
+        },
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "91251008",
+              "display": "Physical therapy session"
+            }
+          ]
+        },
+        "performedDateTime": "2026-09-15"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "p-james-walker-proc-11",
+        "subject": {
+          "reference": "Patient/p-james-walker"
+        },
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "91251008",
+              "display": "Physical therapy session"
+            }
+          ]
+        },
+        "performedDateTime": "2026-09-22"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "p-james-walker-proc-12",
+        "subject": {
+          "reference": "Patient/p-james-walker"
+        },
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "91251008",
+              "display": "Physical therapy session"
+            }
+          ]
+        },
+        "performedDateTime": "2026-09-29"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "p-james-walker-proc-13",
+        "subject": {
+          "reference": "Patient/p-james-walker"
+        },
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "91251008",
+              "display": "Physical therapy session"
+            }
+          ]
+        },
+        "performedDateTime": "2026-10-06"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "p-james-walker-docu-14",
+        "subject": {
+          "reference": "Patient/p-james-walker"
+        },
+        "status": "current",
+        "type": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "11506-3",
+              "display": "Progress note"
+            }
+          ]
+        },
+        "description": "Office visit - low back pain",
+        "date": "2026-08-25",
+        "content": [
+          {
+            "attachment": {
+              "contentType": "text/plain",
+              "data": "NTIteWVhci1vbGQgbWFuIHdpdGggMiB3ZWVrcyBvZiBsb3cgYmFjayBwYWluIHJhZGlhdGluZyBkb3duIHRoZSByaWdodCBsZWcgYWZ0ZXIgbGlmdGluZy4gTm8gc2FkZGxlIGFuZXN0aGVzaWEsIG5vIGJvd2VsIG9yIGJsYWRkZXIgY2hhbmdlcywgbm8gd2Vha25lc3MuIFBsYW46IG5hcHJveGVuIDUwMCBtZyBCSUQgYW5kIHJlZmVycmFsIHRvIHBoeXNpY2FsIHRoZXJhcHku"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "p-james-walker-docu-15",
+        "subject": {
+          "reference": "Patient/p-james-walker"
+        },
+        "status": "current",
+        "type": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "11506-3",
+              "display": "Progress note"
+            }
+          ]
+        },
+        "description": "Follow-up - persistent radicular pain",
+        "date": "2026-10-17",
+        "content": [
+          {
+            "attachment": {
+              "contentType": "text/plain",
+              "data": "UGVyc2lzdGVudCByaWdodC1zaWRlZCByYWRpY3VsYXIgcGFpbiBhZnRlciA2IHBoeXNpY2FsIHRoZXJhcHkgc2Vzc2lvbnMgYW5kIDggd2Vla3Mgb2YgbmFwcm94ZW4uIFBvc2l0aXZlIHN0cmFpZ2h0LWxlZyByYWlzZSBvbiB0aGUgcmlnaHQuIFJlZmxleGVzIHN5bW1ldHJpYywgc3RyZW5ndGggNS81LiBObyByZWQtZmxhZyBzeW1wdG9tcy4gT3JkZXJpbmcgTVJJIG9mIHRoZSBsdW1iYXIgc3BpbmUgdG8gZXZhbHVhdGUgZm9yIGRpc2MgaGVybmlhdGlvbiBhbmQgZ3VpZGUgZnVydGhlciBtYW5hZ2VtZW50Lg=="
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
