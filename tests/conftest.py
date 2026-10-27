@@ -14,8 +14,8 @@ DATA = ROOT / "data" / "fhir"
 
 
 @pytest.fixture
-def store(tmp_path):
-    return LocalFhirStore(DATA, overlay_dir=tmp_path / "overlay")
+def store():
+    return LocalFhirStore(DATA)  # read-only; the app adds chart records via its database
 
 
 @pytest.fixture
@@ -41,13 +41,13 @@ def make_case(db, spec):
 
 
 @pytest.fixture
-def client(tmp_path, store):
+def client(tmp_path):
     settings = Settings(
         _env_file=None,
         database_url=f"sqlite:///{tmp_path / 'app.db'}",
         payer_decision_after_checks=1,
     )
-    app = create_app(settings, store=store, planner=ScriptedPlanner())
+    app = create_app(settings, planner=ScriptedPlanner())
     with TestClient(app) as c:
         yield c
 

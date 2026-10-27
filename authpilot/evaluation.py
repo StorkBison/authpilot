@@ -20,6 +20,7 @@ from authpilot.models import AgentStep
 from authpilot.seed import create_case, load_case_specs
 
 REPORT_DIR = ROOT / "var" / "eval"
+BASELINE_DIR = ROOT / "data" / "eval_reports"  # committed reports, shown when none ran locally
 
 
 def run_eval(planner, settings: Settings, limit: int | None = None) -> dict:
@@ -82,8 +83,11 @@ def save_report(report: dict, directory: Path = REPORT_DIR) -> Path:
     return path
 
 
-def load_reports(directory: Path = REPORT_DIR) -> list[dict]:
-    if not directory.exists():
-        return []
-    reports = [json.loads(p.read_text(encoding="utf-8")) for p in directory.glob("*.json")]
-    return sorted(reports, key=lambda r: r["ran_at"], reverse=True)
+def load_reports(*directories: Path) -> list[dict]:
+    """Latest report per planner; local runs take precedence over committed baselines."""
+    by_planner: dict[str, dict] = {}
+    for directory in directories or (BASELINE_DIR, REPORT_DIR):
+        for path in directory.glob("*.json") if directory.exists() else []:
+            report = json.loads(path.read_text(encoding="utf-8"))
+            by_planner[report["planner"]] = report
+    return sorted(by_planner.values(), key=lambda r: r["ran_at"], reverse=True)

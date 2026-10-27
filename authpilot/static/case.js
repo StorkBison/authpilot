@@ -177,6 +177,9 @@ $("#actions").addEventListener("click", async (e) => {
   const action = btn.dataset.action;
   if (action === "withdraw" && !confirm("Withdraw this request without submitting?")) return;
   btn.disabled = true;
+  if (["run", "appeal", "provider_reply"].includes(action)) {
+    $("#actions").innerHTML = `<span class="note">The agent is working on this case…</span>`;
+  }
   try {
     const path = { run: "run", approve: "approve", provider_reply: "provider-reply",
       check_status: "check-status", appeal: "appeal", withdraw: "withdraw" }[action];
@@ -186,6 +189,7 @@ $("#actions").addEventListener("click", async (e) => {
     lastStepCount = -1;
     if (action === "approve") toast(`Submitted to Northwind - reference ${res.payer_reference}`);
     else if (action === "check_status") toast(res.status === "submitted" ? "Still pending at the payer" : `Payer decision: ${res.status}`);
+    else if (res.status && res.status !== "started") toast(`Agent finished - ${(STATUS[res.status] || [res.status])[0]}`);
     else if (action === "provider_reply") toast(`Provider added ${res.added} record(s) - agent re-checking the case`);
     else if (action === "run" || action === "appeal") toast("Agent started");
     await load();

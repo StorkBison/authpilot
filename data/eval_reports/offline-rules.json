@@ -1,0 +1,369 @@
+{
+  "planner": "offline-rules",
+  "ran_at": "2026-10-27T15:32:49+00:00",
+  "seconds": 0.2,
+  "overall": {
+    "correct": 24,
+    "total": 30,
+    "accuracy": 0.8
+  },
+  "traps": {
+    "correct": 0,
+    "total": 6,
+    "accuracy": 0.0
+  },
+  "non_traps": {
+    "correct": 24,
+    "total": 24,
+    "accuracy": 1.0
+  },
+  "by_service": {
+    "SVC-GLP1-SEMAGLUTIDE": {
+      "correct": 8,
+      "total": 10,
+      "accuracy": 0.8
+    },
+    "SVC-MRI-KNEE": {
+      "correct": 8,
+      "total": 10,
+      "accuracy": 0.8
+    },
+    "SVC-MRI-LSPINE": {
+      "correct": 8,
+      "total": 10,
+      "accuracy": 0.8
+    }
+  },
+  "cases": [
+    {
+      "patient_id": "p-eval-01",
+      "service_code": "SVC-MRI-LSPINE",
+      "scenario": "PT x5, 8+ weeks",
+      "trap": false,
+      "expected": "ready",
+      "got": "ready",
+      "correct": true,
+      "seconds": 0.0,
+      "tool_calls": 6
+    },
+    {
+      "patient_id": "p-eval-02",
+      "service_code": "SVC-MRI-LSPINE",
+      "scenario": "NSAID 7 weeks",
+      "trap": false,
+      "expected": "ready",
+      "got": "ready",
+      "correct": true,
+      "seconds": 0.0,
+      "tool_calls": 6
+    },
+    {
+      "patient_id": "p-eval-03",
+      "service_code": "SVC-MRI-LSPINE",
+      "scenario": "red flag: progressive foot drop",
+      "trap": false,
+      "expected": "ready",
+      "got": "ready",
+      "correct": true,
+      "seconds": 0.0,
+      "tool_calls": 6
+    },
+    {
+      "patient_id": "p-eval-04",
+      "service_code": "SVC-MRI-LSPINE",
+      "scenario": "red flag: cancer history",
+      "trap": false,
+      "expected": "ready",
+      "got": "ready",
+      "correct": true,
+      "seconds": 0.0,
+      "tool_calls": 6
+    },
+    {
+      "patient_id": "p-eval-05",
+      "service_code": "SVC-MRI-LSPINE",
+      "scenario": "only ~3 weeks of symptoms, no red flags",
+      "trap": false,
+      "expected": "not_supported",
+      "got": "not_supported",
+      "correct": true,
+      "seconds": 0.0,
+      "tool_calls": 6
+    },
+    {
+      "patient_id": "p-eval-06",
+      "service_code": "SVC-MRI-LSPINE",
+      "scenario": "8 weeks of pain, no conservative therapy documented",
+      "trap": false,
+      "expected": "needs_info",
+      "got": "needs_info",
+      "correct": true,
+      "seconds": 0.0,
+      "tool_calls": 6
+    },
+    {
+      "patient_id": "p-eval-07",
+      "service_code": "SVC-MRI-LSPINE",
+      "scenario": "PT documented only in a note",
+      "trap": false,
+      "expected": "ready",
+      "got": "ready",
+      "correct": true,
+      "seconds": 0.0,
+      "tool_calls": 7
+    },
+    {
+      "patient_id": "p-eval-08",
+      "service_code": "SVC-MRI-LSPINE",
+      "scenario": "PT recommended but never started",
+      "trap": true,
+      "expected": "needs_info",
+      "got": "ready",
+      "correct": false,
+      "seconds": 0.0,
+      "tool_calls": 7
+    },
+    {
+      "patient_id": "p-eval-09",
+      "service_code": "SVC-MRI-LSPINE",
+      "scenario": "only NSAID order was cancelled",
+      "trap": true,
+      "expected": "needs_info",
+      "got": "ready",
+      "correct": false,
+      "seconds": 0.0,
+      "tool_calls": 6
+    },
+    {
+      "patient_id": "p-eval-10",
+      "service_code": "SVC-MRI-LSPINE",
+      "scenario": "~4 weeks of symptoms, no red flags",
+      "trap": false,
+      "expected": "not_supported",
+      "got": "not_supported",
+      "correct": true,
+      "seconds": 0.0,
+      "tool_calls": 6
+    },
+    {
+      "patient_id": "p-eval-11",
+      "service_code": "SVC-GLP1-SEMAGLUTIDE",
+      "scenario": "metformin + A1c 8.4",
+      "trap": false,
+      "expected": "ready",
+      "got": "ready",
+      "correct": true,
+      "seconds": 0.0,
+      "tool_calls": 7
+    },
+    {
+      "patient_id": "p-eval-12",
+      "service_code": "SVC-GLP1-SEMAGLUTIDE",
+      "scenario": "metformin intolerance recorded",
+      "trap": false,
+      "expected": "ready",
+      "got": "ready",
+      "correct": true,
+      "seconds": 0.0,
+      "tool_calls": 7
+    },
+    {
+      "patient_id": "p-eval-13",
+      "service_code": "SVC-GLP1-SEMAGLUTIDE",
+      "scenario": "metformin intolerance in a note",
+      "trap": false,
+      "expected": "ready",
+      "got": "ready",
+      "correct": true,
+      "seconds": 0.0,
+      "tool_calls": 8
+    },
+    {
+      "patient_id": "p-eval-14",
+      "service_code": "SVC-GLP1-SEMAGLUTIDE",
+      "scenario": "no metformin history",
+      "trap": false,
+      "expected": "needs_info",
+      "got": "needs_info",
+      "correct": true,
+      "seconds": 0.0,
+      "tool_calls": 7
+    },
+    {
+      "patient_id": "p-eval-15",
+      "service_code": "SVC-GLP1-SEMAGLUTIDE",
+      "scenario": "A1c 6.6 at goal",
+      "trap": false,
+      "expected": "not_supported",
+      "got": "not_supported",
+      "correct": true,
+      "seconds": 0.0,
+      "tool_calls": 7
+    },
+    {
+      "patient_id": "p-eval-16",
+      "service_code": "SVC-GLP1-SEMAGLUTIDE",
+      "scenario": "latest A1c is 200 days old",
+      "trap": false,
+      "expected": "needs_info",
+      "got": "needs_info",
+      "correct": true,
+      "seconds": 0.0,
+      "tool_calls": 7
+    },
+    {
+      "patient_id": "p-eval-17",
+      "service_code": "SVC-GLP1-SEMAGLUTIDE",
+      "scenario": "no type 2 diabetes diagnosis",
+      "trap": false,
+      "expected": "not_supported",
+      "got": "not_supported",
+      "correct": true,
+      "seconds": 0.0,
+      "tool_calls": 7
+    },
+    {
+      "patient_id": "p-eval-18",
+      "service_code": "SVC-GLP1-SEMAGLUTIDE",
+      "scenario": "metformin discussed but never started",
+      "trap": true,
+      "expected": "needs_info",
+      "got": "ready",
+      "correct": false,
+      "seconds": 0.0,
+      "tool_calls": 8
+    },
+    {
+      "patient_id": "p-eval-19",
+      "service_code": "SVC-GLP1-SEMAGLUTIDE",
+      "scenario": "metformin + A1c 7.4",
+      "trap": false,
+      "expected": "ready",
+      "got": "ready",
+      "correct": true,
+      "seconds": 0.0,
+      "tool_calls": 7
+    },
+    {
+      "patient_id": "p-eval-20",
+      "service_code": "SVC-GLP1-SEMAGLUTIDE",
+      "scenario": "current A1c recorded only in the visit note",
+      "trap": true,
+      "expected": "ready",
+      "got": "needs_info",
+      "correct": false,
+      "seconds": 0.0,
+      "tool_calls": 8
+    },
+    {
+      "patient_id": "p-eval-21",
+      "service_code": "SVC-MRI-KNEE",
+      "scenario": "PT x4 + recent X-ray",
+      "trap": false,
+      "expected": "ready",
+      "got": "ready",
+      "correct": true,
+      "seconds": 0.0,
+      "tool_calls": 7
+    },
+    {
+      "patient_id": "p-eval-22",
+      "service_code": "SVC-MRI-KNEE",
+      "scenario": "no knee X-ray",
+      "trap": false,
+      "expected": "needs_info",
+      "got": "needs_info",
+      "correct": true,
+      "seconds": 0.0,
+      "tool_calls": 7
+    },
+    {
+      "patient_id": "p-eval-23",
+      "service_code": "SVC-MRI-KNEE",
+      "scenario": "X-ray is 120 days old",
+      "trap": false,
+      "expected": "needs_info",
+      "got": "needs_info",
+      "correct": true,
+      "seconds": 0.0,
+      "tool_calls": 7
+    },
+    {
+      "patient_id": "p-eval-24",
+      "service_code": "SVC-MRI-KNEE",
+      "scenario": "acute meniscal tear with locking",
+      "trap": false,
+      "expected": "ready",
+      "got": "ready",
+      "correct": true,
+      "seconds": 0.0,
+      "tool_calls": 7
+    },
+    {
+      "patient_id": "p-eval-25",
+      "service_code": "SVC-MRI-KNEE",
+      "scenario": "2 weeks of knee pain, no injury",
+      "trap": false,
+      "expected": "not_supported",
+      "got": "not_supported",
+      "correct": true,
+      "seconds": 0.0,
+      "tool_calls": 7
+    },
+    {
+      "patient_id": "p-eval-26",
+      "service_code": "SVC-MRI-KNEE",
+      "scenario": "PT only in scanned records",
+      "trap": false,
+      "expected": "ready",
+      "got": "ready",
+      "correct": true,
+      "seconds": 0.0,
+      "tool_calls": 8
+    },
+    {
+      "patient_id": "p-eval-27",
+      "service_code": "SVC-MRI-KNEE",
+      "scenario": "no conservative therapy documented",
+      "trap": false,
+      "expected": "needs_info",
+      "got": "needs_info",
+      "correct": true,
+      "seconds": 0.0,
+      "tool_calls": 7
+    },
+    {
+      "patient_id": "p-eval-28",
+      "service_code": "SVC-MRI-KNEE",
+      "scenario": "patient declined PT",
+      "trap": true,
+      "expected": "needs_info",
+      "got": "ready",
+      "correct": false,
+      "seconds": 0.0,
+      "tool_calls": 8
+    },
+    {
+      "patient_id": "p-eval-29",
+      "service_code": "SVC-MRI-KNEE",
+      "scenario": "NSAID 6+ weeks + X-ray",
+      "trap": false,
+      "expected": "ready",
+      "got": "ready",
+      "correct": true,
+      "seconds": 0.0,
+      "tool_calls": 7
+    },
+    {
+      "patient_id": "p-eval-30",
+      "service_code": "SVC-MRI-KNEE",
+      "scenario": "PT coded as local 'physiotherapy' procedures",
+      "trap": true,
+      "expected": "ready",
+      "got": "needs_info",
+      "correct": false,
+      "seconds": 0.0,
+      "tool_calls": 7
+    }
+  ]
+}

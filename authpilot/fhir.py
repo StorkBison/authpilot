@@ -10,9 +10,12 @@ import re
 from collections.abc import Iterable
 from datetime import date
 from pathlib import Path
-from typing import Protocol
+from typing import TYPE_CHECKING, Protocol
 
 import httpx
+
+if TYPE_CHECKING:
+    from authpilot.db import Database
 
 CLINICAL_TYPES = (
     "Condition",
@@ -31,21 +34,29 @@ class FhirStore(Protocol):
 
 
 class LocalFhirStore:
-    """Reads `<data_dir>/<patient-id>.json` bundles; additions go to an overlay directory."""
+    """Reads `<data_dir>/<patient-id>.json` bundles; additions are stored in the database."""
 
-    def __init__(self, data_dir: Path, overlay_dir: Path | None = None):
+    def __init__(self, data_dir: Path, db: "Database | None" = None):
         self.data_dir = data_dir
-        self.overlay_dir = overlay_dir
+        self.db = db
 
     def _bundle(self, patient_id: str) -> list[dict]:
         path = self.data_dir / f"{patient_id}.json"
         if not path.exists():
             return []
         bundle = json.loads(path.read_text(encoding="utf-8"))
-        entries = [e["resource"] for e in bundle.get("entry", [])]
-        if self.overlay_dir and (overlay := self.overlay_dir / f"{patient_id}.json").exists():
-            entries += json.loads(overlay.read_text(encoding="utf-8"))
-        return entries
+        return [e["resource"] for e in bundle.get("entry", [])] + self._additions(patient_id)
+
+    def _additions(self, patient_id: str) -> list[dict]:
+        if self.db is None:
+            return []
+        from authpilot.models import ChartAddition
+
+        with self.db.session() as s:
+            rows = (
+                s.query(ChartAddition).filter_by(patient_id=patient_id).order_by(ChartAddition.id)
+            )
+            return [row.resource for row in rows]
 
     def patient(self, patient_id: str) -> dict | None:
         return next((r for r in self._bundle(patient_id) if r["resourceType"] == "Patient"), None)
@@ -54,18 +65,13 @@ class LocalFhirStore:
         return [r for r in self._bundle(patient_id) if r["resourceType"] != "Patient"]
 
     def add(self, patient_id: str, resource: dict) -> None:
-        if not self.overlay_dir:
-            raise RuntimeError("Local store is read-only (no overlay directory configured)")
-        self.overlay_dir.mkdir(parents=True, exist_ok=True)
-        path = self.overlay_dir / f"{patient_id}.json"
-        existing = json.loads(path.read_text(encoding="utf-8")) if path.exists() else []
-        existing.append(resource)
-        path.write_text(json.dumps(existing, indent=2), encoding="utf-8")
+        if self.db is None:
+            raise RuntimeError("Local store is read-only (no database configured)")
+        from authpilot.models import ChartAddition
 
-    def reset_overlay(self) -> None:
-        if self.overlay_dir and self.overlay_dir.exists():
-            for f in self.overlay_dir.glob("*.json"):
-                f.unlink()
+        with self.db.session() as s:
+            s.add(ChartAddition(patient_id=patient_id, resource=resource))
+            s.commit()
 
 
 class HttpFhirStore:

@@ -23,7 +23,7 @@
       <span class="avatar" title="{{ coordinator }}">{{ coordinator.split()[0][0] }}{{ coordinator.split()[-1][0] }}</span>
     </div>
   </header>
-  <div class="synthetic">Synthetic patients only - no real health information. Payer and policies are fictional.</div>
+  <div class="synthetic">Synthetic patients only - no real health information. Payer and policies are fictional.{% if ephemeral %} Demo data is temporary and may reset at any time.{% endif %}</div>
   <main>{% block main %}{% endblock %}</main>
   <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
   <script src="/static/common.js"></script>

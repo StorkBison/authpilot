@@ -1,6 +1,7 @@
 import asyncio
 import logging
 from contextlib import asynccontextmanager
+from datetime import UTC, datetime, timedelta
 from pathlib import Path
 from typing import Annotated
 
@@ -15,7 +16,7 @@ from authpilot import __version__, fhir
 from authpilot.agent.planners import build_planner
 from authpilot.agent.runner import AgentRunner
 from authpilot.audit import record_audit
-from authpilot.config import ROOT, Settings, get_settings
+from authpilot.config import Settings, get_settings
 from authpilot.db import Database
 from authpilot.evaluation import load_reports
 from authpilot.models import AgentStep, AuditEvent, Case, CaseStatus, Finding
@@ -36,10 +37,10 @@ log = logging.getLogger(__name__)
 HERE = Path(__file__).parent
 
 
-def build_store(settings: Settings) -> fhir.FhirStore:
+def build_store(settings: Settings, db: Database) -> fhir.FhirStore:
     if settings.fhir_base_url:
         return fhir.HttpFhirStore(settings.fhir_base_url)
-    return fhir.LocalFhirStore(settings.fhir_data_dir, overlay_dir=ROOT / "var" / "fhir_overlay")
+    return fhir.LocalFhirStore(settings.fhir_data_dir, db=db)
 
 
 def available_actions(case: Case, has_reply: bool) -> list[str]:
@@ -68,7 +69,7 @@ def create_app(
 ) -> FastAPI:
     settings = settings or get_settings()
     db = Database(settings.database_url)
-    store = store or build_store(settings)
+    store = store or build_store(settings, db)
     planner = planner or build_planner(settings.anthropic_api_key, settings.claude_model)
     runner = AgentRunner(store, planner, settings.agent_max_steps)
     payer = PayerSimulator(store, settings.payer_decision_after_checks)
@@ -109,22 +110,43 @@ def create_app(
                 status.HTTP_409_CONFLICT, f"'{action}' is not available while case is {case.status}"
             )
 
-    def start_agent(case_id: int) -> None:
+    def enforce_run_cap(session: Session) -> None:
+        cap = settings.max_agent_runs_per_hour
+        if not cap:
+            return
+        since = datetime.now(UTC) - timedelta(hours=1)
+        recent = session.scalar(
+            select(func.count(AuditEvent.id)).where(
+                AuditEvent.action == "agent_started", AuditEvent.created_at >= since
+            )
+        )
+        if recent >= cap:
+            raise HTTPException(
+                status.HTTP_429_TOO_MANY_REQUESTS,
+                f"This demo allows {cap} agent runs per hour - please try again later.",
+                headers={"Retry-After": "600"},
+            )
+
+    async def launch_agent(case_id: int) -> str:
+        """Background task locally; inline on serverless, where work can't outlive a response."""
         running.add(case_id)
 
         def work():
             with db.session() as s:
-                runner.run(s, case_id)
+                return runner.run(s, case_id).status
 
         async def go():
             try:
-                await asyncio.to_thread(work)
+                return await asyncio.to_thread(work)
             finally:
                 running.discard(case_id)
 
+        if settings.serverless:
+            return await go()
         task = asyncio.create_task(go())
         background.add(task)
         task.add_done_callback(background.discard)
+        return "started"
 
     # --- Pages ----------------------------------------------------------------------
 
@@ -133,6 +155,7 @@ def create_app(
             "version": __version__,
             "planner": planner.name,
             "coordinator": settings.coordinator_name,
+            "ephemeral": settings.ephemeral_database,
         }
         return templates.TemplateResponse(request, name, ctx)
 
@@ -157,7 +180,13 @@ def create_app(
     @app.get("/health", tags=["ops"])
     def health(session: DB):
         session.execute(select(1))
-        return {"status": "ok", "version": __version__, "planner": planner.name}
+        return {
+            "status": "ok",
+            "version": __version__,
+            "planner": planner.name,
+            "serverless": settings.serverless,
+            "database": settings.database_url.split(":", 1)[0].split("+", 1)[0],
+        }
 
     @app.get("/api/cases", response_model=list[CaseOut], tags=["cases"])
     def list_cases(session: DB):
@@ -211,21 +240,21 @@ def create_app(
     async def run_agent(case_id: int, session: DB):
         case = get_case(session, case_id)
         require(case, "run")
+        enforce_run_cap(session)
         record_audit(session, case.id, user, "agent_requested", {"mode": case.mode})
-        start_agent(case.id)
-        return {"status": "started"}
+        return {"status": await launch_agent(case.id)}
 
     @app.post("/api/cases/{case_id}/appeal", status_code=202, tags=["agent"])
     async def appeal(case_id: int, session: DB):
         case = get_case(session, case_id)
         require(case, "appeal")
+        enforce_run_cap(session)
         case.mode = "appeal"
         session.commit()
         record_audit(
             session, case.id, user, "appeal_requested", {"denial": case.prior_denial_reason}
         )
-        start_agent(case.id)
-        return {"status": "started"}
+        return {"status": await launch_agent(case.id)}
 
     @app.post("/api/cases/{case_id}/approve", response_model=CaseOut, tags=["review"])
     def approve(case_id: int, body: ApproveRequest, session: DB):
@@ -273,6 +302,7 @@ def create_app(
         """Demo stand-in for the provider updating the chart in the EHR."""
         case = get_case(session, case_id)
         require(case, "provider_reply")
+        enforce_run_cap(session)
         added = provider_reply_resources(case)
         existing = {r["id"] for r in store.resources(case.patient_id)}
         for resource in added:
@@ -282,8 +312,7 @@ def create_app(
         session.commit()
         record_audit(session, case.id, f"provider:{case.ordering_provider}", "chart_updated",
                      {"resources": [r["id"] for r in added]})  # fmt: skip
-        start_agent(case.id)
-        return {"status": "started", "added": len(added)}
+        return {"status": await launch_agent(case.id), "added": len(added)}
 
     @app.post("/api/cases/{case_id}/withdraw", response_model=CaseOut, tags=["review"])
     def withdraw(case_id: int, session: DB):
@@ -311,9 +340,7 @@ def create_app(
             raise HTTPException(status.HTTP_409_CONFLICT, "An agent run is in progress")
         session.close()
         db.drop_all()
-        db.create_all()
-        if isinstance(store, fhir.LocalFhirStore):
-            store.reset_overlay()
+        db.create_all()  # also clears chart additions made during the demo
         with db.session() as s:
             n = len(seed(s))
         return {"status": "reset", "cases": n}

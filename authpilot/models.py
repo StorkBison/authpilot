@@ -109,6 +109,21 @@ class AuditEvent(Base):
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utcnow)
 
 
+class ChartAddition(Base):
+    """FHIR resources added to a chart after load (e.g. the provider answering a question).
+
+    Kept in the database rather than on disk so every app instance sees them - required on
+    serverless platforms where the filesystem is read-only and instances are short-lived.
+    """
+
+    __tablename__ = "chart_additions"
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    patient_id: Mapped[str] = mapped_column(String(64), index=True)
+    resource: Mapped[dict] = mapped_column(JSON)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utcnow)
+
+
 class PayerSubmission(Base):
     """State of the simulated payer (Northwind Health Plan)."""
 
