@@ -1,0 +1,101 @@
+# Northwind Health Plan - SAMPLE prior-authorization policies.
+# Fictional payer; criteria are simplified for demonstration and are not clinical guidance.
+#
+# Each criterion has human-readable `text` (what the agent and the coordinator read) and
+# machine-checkable `any_of` rules (what the simulated payer adjudicates against).
+# `if_unmet` tells the clinic what to do when evidence is missing:
+#   clarify -> ask the ordering provider for documentation
+#   deny    -> the request does not meet policy; do not submit
+# `deny_if` marks evidence that positively rules the criterion out (e.g. a recent normal lab).
+
+payer: Northwind Health Plan
+policies:
+  - id: NW-IMG-012
+    service_code: SVC-MRI-LSPINE
+    title: MRI of the lumbar spine
+    summary: >-
+      Covered for low back pain that persists despite at least 6 weeks of conservative care,
+      or immediately when red-flag findings are present.
+    criteria:
+      - id: L1
+        text: >-
+          Low back pain (with or without sciatica/radiculopathy) documented for at least
+          6 weeks before the request, OR a red-flag finding (cauda equina syndrome, foot drop
+          or other progressive neurological deficit, history of cancer, spinal infection).
+        if_unmet: deny
+        any_of:
+          - {type: condition, codes: ["M54.5", "M54.4", "M54.16", "M54.17"], min_age_days: 42}
+          - {type: condition, codes: ["G83.4", "M21.37", "Z85", "M46.2", "M46.4"]}
+      - id: L2
+        text: >-
+          At least 6 weeks of conservative therapy: physical therapy, or a trial of NSAIDs or
+          other analgesics started at least 6 weeks before the request. Not required when a
+          red-flag finding (see L1) is documented.
+        if_unmet: clarify
+        any_of:
+          - {type: procedure, codes: ["91251008"], text_any: ["physical therapy"], min_count: 1}
+          - {type: medication, rxnorm: ["7258", "5640", "3355", "161"], min_age_days: 42}
+          - {type: document, any_terms: ["physical therapy", "physiotherapy", "PT sessions"]}
+          - {type: condition, codes: ["G83.4", "M21.37", "Z85", "M46.2", "M46.4"]}
+
+  - id: NW-RX-031
+    service_code: SVC-GLP1-SEMAGLUTIDE
+    title: Semaglutide (GLP-1 receptor agonist) for type 2 diabetes
+    summary: >-
+      Covered for adults with type 2 diabetes and inadequate glycaemic control after a trial
+      of metformin, unless metformin is contraindicated or not tolerated.
+    criteria:
+      - id: G1
+        text: Diagnosis of type 2 diabetes mellitus.
+        if_unmet: deny
+        any_of:
+          - {type: condition, codes: ["E11"]}
+      - id: G2
+        text: >-
+          The most recent HbA1c, measured within the 90 days before the request, is 7.0% or
+          higher. If no HbA1c was measured in that window, a current result must be obtained.
+        if_unmet: clarify
+        any_of:
+          - {type: observation, loinc: "4548-4", op: ">=", value: 7.0, within_days: 90}
+        deny_if:
+          - {type: observation, loinc: "4548-4", op: "<", value: 7.0, within_days: 90}
+      - id: G3
+        text: >-
+          Documented trial of metformin, OR a documented contraindication or intolerance to
+          metformin.
+        if_unmet: clarify
+        any_of:
+          - {type: medication, rxnorm: ["6809"]}
+          - {type: intolerance, substances: ["metformin"]}
+          - {type: document, any_terms: ["metformin"]}
+
+  - id: NW-IMG-020
+    service_code: SVC-MRI-KNEE
+    title: MRI of the knee
+    summary: >-
+      Covered for persistent knee pain after conservative care with a recent X-ray, or for
+      acute injury with mechanical symptoms.
+    criteria:
+      - id: K1
+        text: >-
+          Knee pain documented for at least 6 weeks, OR an acute knee injury (e.g. meniscal or
+          ligament tear) with mechanical symptoms such as locking or instability.
+        if_unmet: deny
+        any_of:
+          - {type: condition, codes: ["M25.56"], min_age_days: 42}
+          - {type: condition, codes: ["S83"]}
+      - id: K2
+        text: >-
+          At least 6 weeks of conservative therapy (physical therapy or NSAIDs), OR an acute
+          injury with mechanical symptoms as in K1.
+        if_unmet: clarify
+        any_of:
+          - {type: procedure, codes: ["91251008"], text_any: ["physical therapy"], min_count: 1}
+          - {type: medication, rxnorm: ["7258", "5640", "3355"], min_age_days: 42}
+          - {type: document, any_terms: ["physical therapy", "physiotherapy", "PT sessions"]}
+          - {type: condition, codes: ["S83"]}
+      - id: K3
+        text: Weight-bearing X-ray of the affected knee within the 60 days before the request.
+        if_unmet: clarify
+        any_of:
+          - {type: procedure, codes: ["XR-KNEE"], within_days: 60}
