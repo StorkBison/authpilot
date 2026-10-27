@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% set nav = "queue" %}
+{% block title %}Work queue · AuthPilot{% endblock %}
+{% block main %}
+<div class="page-head">
+  <div>
+    <h1>Work queue</h1>
+    <p class="muted">Orders that need prior authorization. The agent prepares each case; you approve before anything reaches the payer.</p>
+  </div>
+  <button id="reset" class="btn ghost" type="button" title="Reload the synthetic demo cases">↺ Reset demo</button>
+</div>
+<section class="kpis" id="kpis"></section>
+<section class="card">
+  <table class="table" id="queue">
+    <thead><tr><th>Patient</th><th>Requested service</th><th>Policy</th><th>Status</th><th>Agent recommendation</th><th class="num">Prep time</th><th>Updated</th></tr></thead>
+    <tbody></tbody>
+  </table>
+</section>
+{% endblock %}
+{% block scripts %}<script src="/static/queue.js"></script>{% endblock %}

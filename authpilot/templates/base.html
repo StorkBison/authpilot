@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}AuthPilot{% endblock %}</title>
+  <link rel="stylesheet" href="/static/app.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/">
+      <span class="logo" aria-hidden="true">✚</span>
+      <span><b>AuthPilot</b><small>Prior authorization · Riverside Family Clinic</small></span>
+    </a>
+    <nav>
+      <a href="/" class="{{ 'active' if nav == 'queue' }}">Work queue</a>
+      <a href="/audit" class="{{ 'active' if nav == 'audit' }}">Audit log</a>
+      <a href="/eval" class="{{ 'active' if nav == 'eval' }}">Evaluation</a>
+      <a href="/docs" target="_blank" rel="noopener">API</a>
+    </nav>
+    <div class="who">
+      <span class="chip" title="Planner driving the agent">Agent: <b>{{ planner }}</b></span>
+      <span class="avatar" title="{{ coordinator }}">{{ coordinator.split()[0][0] }}{{ coordinator.split()[-1][0] }}</span>
+    </div>
+  </header>
+  <div class="synthetic">Synthetic patients only - no real health information. Payer and policies are fictional.</div>
+  <main>{% block main %}{% endblock %}</main>
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+  <script src="/static/common.js"></script>
+  {% block scripts %}{% endblock %}
+</body>
+</html>

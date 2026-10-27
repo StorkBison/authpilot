@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% set nav = "queue" %}
+{% block title %}Case #{{ case_id }} · AuthPilot{% endblock %}
+{% block main %}
+<a class="back" href="/">← Work queue</a>
+<div class="case-head" id="head"></div>
+<div id="banner"></div>
+
+<div class="case-grid">
+  <div class="col-main">
+    <section class="card">
+      <div class="card-title">
+        <h2>Policy criteria vs. chart evidence</h2>
+        <span class="muted small" id="policy-name"></span>
+      </div>
+      <div id="criteria" class="criteria"></div>
+    </section>
+
+    <section class="card" id="draft-card" hidden>
+      <div class="card-title">
+        <h2 id="draft-title">Draft for the payer</h2>
+        <span class="muted small" id="draft-hint"></span>
+      </div>
+      <textarea id="draft" rows="10" spellcheck="true"></textarea>
+    </section>
+
+    <div class="actions" id="actions"></div>
+  </div>
+
+  <aside class="col-side">
+    <section class="card timeline-card">
+      <div class="card-title">
+        <h2>Agent activity</h2>
+        <span class="pill" id="agent-state"></span>
+      </div>
+      <ol id="timeline" class="timeline"></ol>
+    </section>
+  </aside>
+</div>
+
+<dialog id="record">
+  <form method="dialog" class="dialog-head">
+    <h3 id="record-title">Record</h3>
+    <button class="btn ghost" aria-label="Close">✕</button>
+  </form>
+  <p id="record-summary" class="mono"></p>
+  <pre id="record-text" class="doc"></pre>
+  <details><summary>FHIR JSON</summary><pre id="record-raw" class="mono small"></pre></details>
+</dialog>
+{% endblock %}
+{% block scripts %}<script>window.CASE_ID = {{ case_id }};</script><script src="/static/case.js"></script>{% endblock %}

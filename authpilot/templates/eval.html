@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% set nav = "eval" %}
+{% block title %}Evaluation · AuthPilot{% endblock %}
+{% block main %}
+<div class="page-head">
+  <div>
+    <h1>Evaluation</h1>
+    <p class="muted">30 labelled synthetic cases, including 6 deliberate traps (negations, cancelled orders, evidence only in notes). Run <code>authpilot eval</code> or <code>authpilot eval --planner claude</code>.</p>
+  </div>
+</div>
+{% if not reports %}
+<section class="card empty">No reports yet - run <code>authpilot eval</code>.</section>
+{% endif %}
+{% for r in reports %}
+<section class="card report">
+  <div class="card-title">
+    <h2>{{ r.planner }}</h2>
+    <span class="muted small">{{ r.ran_at }} · {{ r.seconds }}s</span>
+  </div>
+  <div class="kpis compact">
+    <div class="kpi"><span class="label">Overall</span><span class="value">{{ (r.overall.accuracy * 100) | round | int }}%</span><span class="muted small">{{ r.overall.correct }}/{{ r.overall.total }}</span></div>
+    <div class="kpi"><span class="label">Trap cases</span><span class="value">{{ r.traps.correct }}/{{ r.traps.total }}</span><span class="muted small">nuance that keyword rules miss</span></div>
+    <div class="kpi"><span class="label">Other cases</span><span class="value">{{ r.non_traps.correct }}/{{ r.non_traps.total }}</span></div>
+    {% for svc, a in r.by_service.items() %}
+    <div class="kpi"><span class="label">{{ svc.replace('SVC-', '') }}</span><span class="value">{{ a.correct }}/{{ a.total }}</span></div>
+    {% endfor %}
+  </div>
+  <details>
+    <summary>Per-case results</summary>
+    <table class="table small">
+      <thead><tr><th></th><th>Patient</th><th>Service</th><th>Scenario</th><th>Expected</th><th>Agent</th><th class="num">Tool calls</th></tr></thead>
+      <tbody>
+      {% for c in r.cases %}
+        <tr class="{{ 'bad' if not c.correct }}">
+          <td>{{ '✓' if c.correct else '✗' }}</td>
+          <td class="mono">{{ c.patient_id }}</td>
+          <td>{{ c.service_code.replace('SVC-', '') }}</td>
+          <td>{{ c.scenario }}{% if c.trap %} <span class="tag">trap</span>{% endif %}</td>
+          <td>{{ c.expected.replace('_', ' ') }}</td>
+          <td>{{ c.got.replace('_', ' ') }}</td>
+          <td class="num">{{ c.tool_calls }}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </details>
+</section>
+{% endfor %}
+{% endblock %}

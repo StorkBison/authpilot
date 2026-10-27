@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% set nav = "audit" %}
+{% block title %}Audit log · AuthPilot{% endblock %}
+{% block main %}
+<div class="page-head">
+  <div>
+    <h1>Audit log</h1>
+    <p class="muted">Append-only record of every action by the agent, the coordinator, the provider and the payer.</p>
+  </div>
+</div>
+<section class="card">
+  <table class="table" id="audit">
+    <thead><tr><th>Time</th><th>Case</th><th>Actor</th><th>Action</th><th>Detail</th></tr></thead>
+    <tbody></tbody>
+  </table>
+</section>
+{% endblock %}
+{% block scripts %}<script src="/static/audit.js"></script>{% endblock %}
