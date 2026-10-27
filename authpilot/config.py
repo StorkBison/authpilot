@@ -5,6 +5,7 @@ from pathlib import Path
 from pydantic import Field, field_validator, model_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
+
 def _project_root() -> Path:
     """The directory holding data/. Next to the package in a checkout; on platforms that
     install the package into site-packages (e.g. Vercel), the working directory."""
